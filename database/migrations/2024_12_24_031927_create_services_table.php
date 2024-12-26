@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name'); // e.g., "Hair Rebond"
             $table->timestamps();
         });
-
     }
 
     /**

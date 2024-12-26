@@ -6,14 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    use HasFactory;
-
-    protected $guarded = [];
-
-    public function serviceOption()
+    protected $fillable = [
+        'user_id',
+        'booking_date',
+    ];
+    // public function serviceOption()
+    // {
+    //     return $this->belongsTo(ServiceOption::class);
+    // }
+    public function services()
     {
-        return $this->belongsTo(ServiceOption::class);
+        return $this->belongsToMany(ServiceOption::class, 'booking_service');
     }
+
 
     public function user()
     {

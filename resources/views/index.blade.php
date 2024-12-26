@@ -95,9 +95,14 @@
                                     </li>
                                 </ul>
                                 <div class="header-btn ms-lg-3">
-                                    <button type="button" class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                    @auth
+                                    <a type="button" class="btn btn-primary theme-btn" href="{{ route('get.booking') }}" target="_blank">
                                         Get Booked
-                                    </button>
+                                    </a>
+                                @endauth
+                                @guest
+                                    <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                                @endguest
                                     {{-- <a href="javascript:void(0)" class="">Get Started</a> --}}
                                 </div>
                             </div> <!-- navbar collapse -->
@@ -131,9 +136,14 @@
                                             <h2 class="text-white">Unleash Your Best Look</h2>
                                             <p class="text-white">Experience beauty and relaxation like never before—because you deserve to shine.</p>
                                         </div>
-                                        <button type="button" class="btn btn-primary theme-btn border-btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
-                                            Get Booked
-                                        </button>
+                                        @auth
+                                            <a type="button" class="btn btn-primary theme-btn border-btn" href="{{ route('get.booking') }}" target="_blank">
+                                                Get Booked
+                                            </a>
+                                        @endauth
+                                        @guest
+                                            <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                                        @endguest
                                     </div>
                                 </div>
                             </div>
@@ -149,9 +159,15 @@
                                             <h2 class="text-white">Where Beauty Blossoms</h2>
                                             <p class="text-white">Step into elegance, leave with confidence.</p>
                                         </div>
-                                        <button type="button" class="btn btn-primary theme-btn border-btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
-                                            Get Booked
-                                        </button>
+                                        @auth
+                                            <a type="button" class="btn btn-primary theme-btn border-btn" href="{{ route('get.booking') }}" target="_blank">
+                                                Get Booked
+                                            </a>
+                                        @endauth
+
+                                        @guest
+                                            <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                                        @endguest
                                     </div>
                                 </div>
                             </div>
@@ -278,13 +294,12 @@
                         <div class="section-title text-center mb-55">
                             <span class="wow fadeInDown" data-wow-delay=".2s">Services</span>
                             <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Best Services</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio
-                                dignissimos ducimus quiblanditiis praesentium</p>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">Explore Our Services and Options</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     @for ($i = 0; $i < 4; $i++)
                         <div class="col-lg-3 col-md-6">
                             <div class="service-box box-style">
@@ -299,7 +314,9 @@
                             </div>
                         </div>
                     @endfor
-                </div>
+                </div> --}}
+
+                @livewire('services-list')  <!-- Include the Livewire component here -->
             </div>
         </section>
         <!-- ========================= service-section end ========================= -->
@@ -316,23 +333,6 @@
             </section>
         </section>
         <!-- ========================= portfolio-section end ========================= -->
-
-        <!-- ========================= process-section start ========================= -->
-        {{-- <section id="location" class="process-section pt-100 pb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-7 col-md-9 mx-auto">
-                        <div class="section-title text-center mb-55">
-                            <span class="wow fadeInDown" data-wow-delay=".2s">Process</span>
-                            <h2 class="wow fadeInUp" data-wow-delay=".4s">Working Process</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio
-                                dignissimos ducimus quiblanditiis praesentium</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- ========================= process-section end ========================= -->
 
         <!-- ========================= team-section start ========================= -->
         <section id="team" class="contact-section pt-110 pb-100">
@@ -359,54 +359,6 @@
             </div>
         </section>
         <!-- ========================= team-section end ========================= -->
-
-        <!-- ========================= client-logo-section start ========================= -->
-        {{-- <section class="client-logo-section pt-100 pb-100">
-            <div class="container">
-                <div class="client-logo-wrapper">
-                    <div class="client-logo-carousel d-flex align-items-center justify-content-between">
-                        <div class="client-logo">
-                            <img src="{{ asset('img/client-logo/uideck-logo.svg') }}" alt="">
-                        </div>
-                        <div class="client-logo">
-                            <img src="{{ asset('img/client-logo/pagebulb-logo.svg') }}" alt="">
-                        </div>
-                        <div class="client-logo">
-                            <img src="{{ asset('img/client-logo/lineicons-logo.svg') }}" alt="">
-                        </div>
-                        <div class="client-logo">
-                            <img src="{{ asset('img/client-logo/graygrids-logo.svg') }}" alt="">
-                        </div>
-                        <div class="client-logo">
-                            <img src="{{ asset('img/client-logo/lineicons-logo.svg') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- ========================= client-logo-section end ========================= -->
-
-        <!-- ========================= contact-section start ========================= -->
-        {{-- <section id="contact" class="contact-section cta-bg img-bg pt-110 pb-100" style="background-image: url('{{ asset('img/bg/cta-bg.jpg') }}');">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-5 col-lg-7">
-                        <div class="section-title mb-60">
-                            <span class="text-white wow fadeInDown" data-wow-delay=".2s">Hey</span>
-                            <h2 class="text-white wow fadeInUp" data-wow-delay=".4s">Do you have any project in mind?</h2>
-                            <p class="text-white wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio
-                                dignissimos ducimus quiblanditiis praesentium</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-5">
-                        <div class="contact-btn text-left text-lg-right">
-                            <a href="#location" class="theme-btn">View Works</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- ========================= contact-section end ========================= -->
 
         <!-- ========================= contact-section start ========================= -->
         <section id="contact" class="contact-section pt-130 pb-100">
@@ -586,43 +538,6 @@
         </footer>
         <!-- ========================= footer end ========================= -->
 
-        <!-- Button trigger modal -->
-
-        {{-- <!-- Login Modal -->
-        <div class="modal fade" id="loginLogoutModal" tabindex="-1" aria-labelledby="loginLogoutModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginLogoutModalLabel">Login/Logout</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form class="h-100 d-flex align-items-center" id="loginForm">
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" required>
-                                      </div>
-                                      <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Login</button>
-                                      </div>
-                                      <p class="text-center mt-3">
-                                        Don't have an account? <button class="btn btn-link" class="btn btn-link" data-bs-target="#signupModal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign Up</button>
-                                      </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div> --}}
         @guest
         <!-- Login Modal -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
