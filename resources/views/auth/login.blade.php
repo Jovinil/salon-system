@@ -9,18 +9,19 @@
         Login
     </div>
     <div class="card-body">
-        <form wire:submit.prevent="authenticate" class="h-100 d-flex align-items-center">
+        <form action="{{ route('authenticate') }}" method="POST" class="h-100 d-flex align-items-center">
+            @csrf
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" wire:model="email" required>
+                                <input name="email" type="email" class="form-control" id="email" wire:model="email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" wire:model="password" required>
+                                <input name="password" type="password" class="form-control" id="password" wire:model="password" required>
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Login</button>

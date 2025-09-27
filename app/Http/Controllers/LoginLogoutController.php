@@ -18,7 +18,6 @@ class LoginLogoutController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            RecordController::loginTime();
             //switch case to determine the role of the user
             switch(Auth::user()->role)
             {
