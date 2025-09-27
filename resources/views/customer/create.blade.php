@@ -24,7 +24,16 @@
                 <div class="col-12 col-lg-5">
                     <div class="card card-dark card-outline mb-4 w-100 w-lg-50"> <!--begin::Header-->
                         <div class="card-header">
-                            <div class="card-title">Set an Appointment</div>
+                            <div class="row">
+                                <div class="col-6 mt-2">
+                                    <div class="card-title">Set an Appointment</div>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <a href="{{ route('view.booking') }}" target="_blank" class="btn btn-outline-secondary ms-auto">See Appointments</a>
+                                </div>
+
+                            </div>
+
                         </div> <!--end::Header--> <!--begin::Form-->
                         <form action="{{ route('create.booking', ['id' => Auth::id()]) }}" method="POST"><!--begin::Body-->
                             @csrf
@@ -59,8 +68,8 @@
 
                                 <!-- Date input -->
                                 <div class="form-group">
-                                    <label for="date">Set Date:</label>
-                                    <input type="date" name="date" id="date" class="form-control">
+                                    <label for="date">Set Date and Time:</label>
+                                    <input type="datetime-local" name="date" id="date" class="form-control">
                                 </div>
 
                                     <table id="services-table" class="table" style="width:100%">
@@ -71,14 +80,6 @@
                                         </thead>
                                         @livewire('service-options')
                                     </table>
-                                        {{-- @for ($i = 0; $i < 10; $i++)
-                                        <div class="col-6 col-lg-4 form-check d-flex justify-content-center mb-2">
-                                            <input class="form-check-input me-1" type="checkbox" name="services[]" value="1" id="service1">
-                                            <label class="form-check-label" for="service1">
-                                                Service One
-                                            </label>
-                                        </div>
-                                        @endfor --}}
 
                                 <div class="container-fluid p-0 mt-2 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">Submit</button>

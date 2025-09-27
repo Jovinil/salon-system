@@ -1,27 +1,117 @@
-@extends('layouts.app')
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Content-Language" content="en">
 
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
+        <!-- Place favicon.ico in the root directory -->
 
-@section('content')
-<!-- ========================= preloader start ========================= -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="ytp-spinner">
-                <div class="ytp-spinner-container">
-                    <div class="ytp-spinner-rotator">
-                        <div class="ytp-spinner-left">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                        <div class="ytp-spinner-right">
-                            <div class="ytp-spinner-circle"></div>
+		<!-- ========================= CSS here ========================= -->
+		<link rel="stylesheet" href="{{ asset('css/bootstrap-5.0.0-alpha.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/LineIcons.2.0.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+        @livewireStyles
+    </head>
+    <body>
+
+        <!-- ========================= preloader start ========================= -->
+            <div class="preloader">
+                <div class="loader">
+                    <div class="ytp-spinner">
+                        <div class="ytp-spinner-container">
+                            <div class="ytp-spinner-rotator">
+                                <div class="ytp-spinner-left">
+                                    <div class="ytp-spinner-circle"></div>
+                                </div>
+                                <div class="ytp-spinner-right">
+                                    <div class="ytp-spinner-circle"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-<!-- preloader end -->
+        <!-- preloader end -->
 
-   <!-- ========================= carousel-section end ========================= -->
+        <!-- ========================= header start ========================= -->
+        <header class="header navbar-area bg-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="{{ asset('img/logo/logo.svg') }}" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="page-scroll active" href="#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#about">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#services">Services</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#location">Location</a>
+                                    </li>
+                                    {{-- <li class="nav-item">
+                                        <a class="page-scroll" href="#team">Team</a>
+                                    </li> --}}
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#contact">Contact</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        @auth
+                                            <button class="nav-link px-0" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                                <img class="p-0 mt-2 d-none d-lg-block" style="height: 25px;" src="{{ asset('bootstrap/bootstrap-icons-1.11.3/person-check.svg') }}" alt="">
+                                                <p class="btn btn-link text-dark p-0 d-lg-none">Logout</p>
+                                            </button>
+                                        @endauth
+
+                                        @guest
+                                            <button class="nav-link px-0" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                                <img class="p-0 mt-2 d-none d-lg-block" style="height: 25px;" src="{{ asset('bootstrap/bootstrap-icons-1.11.3/person-exclamation.svg') }}" alt="">
+                                                <p class="btn btn-link text-dark p-0 d-lg-none">Login</p>
+                                            </button>
+                                        @endguest
+                                    </li>
+                                </ul>
+                                <div class="header-btn ms-lg-3">
+                                    @auth
+                                    <a type="button" class="btn btn-primary theme-btn" href="{{ route('get.booking') }}" target="_blank">
+                                        Get Booked
+                                    </a>
+                                @endauth
+                                @guest
+                                    <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                                @endguest
+                                    {{-- <a href="javascript:void(0)" class="">Get Started</a> --}}
+                                </div>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+
+        </header>
+        <!-- ========================= header end ========================= -->
+
+        <!-- ========================= carousel-section end ========================= -->
         <section id="home" class="carousel-section-wrapper">
             <div class="app-content-header">
                 <!-- Display success message -->
@@ -337,7 +427,7 @@
         <!-- ========================= contact-section end ========================= -->
 
         <!-- ========================= footer start ========================= -->
-        {{-- <footer class="footer pt-100">
+        <footer class="footer pt-100">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-6">
@@ -415,7 +505,7 @@
                     </div>
                 </div>
             </div>
-        </footer> --}}
+        </footer>
         <!-- ========================= footer end ========================= -->
 
         @guest
@@ -517,4 +607,32 @@
         <a href="#" class="scroll-top">
             <i class="lni lni-arrow-up"></i>
         </a>
-@endsection
+
+		<!-- ========================= JS here ========================= -->
+        <script src="{{ asset('jquery/jquery-3.7.1.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.bundle-5.0.0.alpha-min.js') }}"></script>
+        <script src="{{ asset('js/count-up.min.js') }}"></script>
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
+		<script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+
+        <script>
+            // Get references to the modal and form
+            const modal = new bootstrap.Modal(document.getElementById('myModal'));
+            const form = document.getElementById('myForm');
+
+            // Add an event listener for the form submission
+            form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            // You can process the form data here (AJAX, etc.)
+
+            // Optionally, keep the modal open and show a success message or other feedback
+            alert('Form submitted, but modal remains open!');
+            // No need to close the modal, so it stays open
+            });
+        </script>
+
+        @livewireScripts
+    </body>
+</html>

@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class BookingsController extends Controller
 {
-    public function getBooking()
-    {
-
-    }
-
     public function createBooking(Request $request, int $id)
     {
         // Validate the incoming request
@@ -38,19 +33,13 @@ class BookingsController extends Controller
         }
     }
 
-    // public function createBooking(Request $request, int $id)
-    // {
-    //     $validation = $request->validate([
-    //         'date' => 'required|date|after_or_equal:today',
-    //         'services' => 'required|array',
-    //         'services.*' => 'exists:service_options,id', // Ensures no past date and not empty
-    //     ]);
+    public function editBooking()
+    {
+        $user = auth()->user();
 
-    //     // Access selected services
-    //     $selectedServices = $validation['services'];
+        $bookings = $user->bookings()->get();
 
-    //     // Process the selected services
-    //     dd($selectedServices); // Dump the array of selected service IDs
+        return view('customer.view', compact('bookings'));
+    }
 
-    // }
 }

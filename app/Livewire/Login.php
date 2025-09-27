@@ -14,7 +14,7 @@ class Login extends Component
     // Validation rules for the login form
     protected $rules = [
         'email' => 'required|email',
-        'password' => 'required|min:6',
+        'password' => 'required|min:5',
     ];
 
     // Authenticate the user

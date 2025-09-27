@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/test', function () {
+    return view('auth.login');
+});
+
 
 //LOGIN AND LOGOUT ROUTES
 Route::post('/login', [LoginLogoutController::class, 'authenticate'])->name('login');
@@ -29,10 +33,12 @@ Route::post('/customer/create', [UserController::class, 'createUser'])->name('cu
 
     Route::get('/customer{id}', [UserController::class, 'index'])->name('customer.index');
 
-    Route::get('/test', function () {
+    Route::get('/customer/set-appointment', function () {
         return view('customer.create');
     })->name('get.booking');
 
-    Route::post('/test/create-booking/{id}', [BookingsController::class, 'createBooking'])->name('create.booking');
+    Route::post('/customer/create-booking/{id}', [BookingsController::class, 'createBooking'])->name('create.booking');
+
+    Route::get('/customer/see-appointments', [BookingsController::class, 'editBooking'])->name('view.booking');
 });
 
