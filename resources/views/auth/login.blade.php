@@ -27,7 +27,7 @@
                             </div>
                             <p class="text-center mt-3">
                                 Don't have an account?
-                                <button class="btn btn-link" data-bs-target="#signupModal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign Up</button>
+                                <a class="btn btn-link" href="{{ route('signup') }}">Sign Up</a>
                             </p>
                             @if (session()->has('message'))
                                 <div class="alert alert-success mt-3">{{ session('message') }}</div>

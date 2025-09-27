@@ -44,7 +44,7 @@
                                 @endauth
 
                                 @guest
-                                    <button class="nav-link px-0" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <button  type="button" onclick="window.location='{{ route('login') }}'" class="nav-link px-0">
                                         <img class="p-0 mt-2 d-none d-lg-block" style="height: 25px;" src="{{ asset('bootstrap/bootstrap-icons-1.11.3/person-exclamation.svg') }}" alt="">
                                         <p class="btn btn-link text-dark p-0 d-lg-none">Login</p>
                                     </button>
@@ -58,7 +58,7 @@
                             </a>
                         @endauth
                         @guest
-                            <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                            <a class="btn btn-primary theme-btn" href="{{ route('login') }}">Get Booked</a>
                         @endguest
                             {{-- <a href="javascript:void(0)" class="">Get Started</a> --}}
                         </div>

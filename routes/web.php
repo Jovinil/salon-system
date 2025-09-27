@@ -9,13 +9,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/test', function () {
-    return view('auth.login');
-});
+Route::get('/login', function () { return view('auth.login'); })->name('login');
+
+Route::get('/signup', function () { return view('auth.signup'); })->name('signup');
 
 
 //LOGIN AND LOGOUT ROUTES
-Route::post('/login', [LoginLogoutController::class, 'authenticate'])->name('login');
+Route::post('/authenticate', [LoginLogoutController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginLogoutController::class, 'logout'])->name('logout');
 
 // Route::get('/customer{id}', [UserController::class, 'index'])->name('customer.index');

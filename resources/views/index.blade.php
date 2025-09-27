@@ -49,7 +49,7 @@
                                             </a>
                                         @endauth
                                         @guest
-                                            <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                                            <a class="btn btn-primary theme-btn" href="{{ route('login') }}" >Get Booked</a>
                                         @endguest
                                     </div>
                                 </div>
@@ -464,7 +464,7 @@
         @endauth
 
         <!-- Signup Modal -->
-        <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        {{-- <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -511,7 +511,7 @@
                 </form>
             </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- ========================= scroll-top ========================= -->
         <a href="#" class="scroll-top">
