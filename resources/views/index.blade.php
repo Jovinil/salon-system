@@ -73,7 +73,7 @@
                                         @endauth
 
                                         @guest
-                                            <button class="btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Get Booked</button>
+                                            <a class="btn btn-primary theme-btn" href="{{ route('login') }}" >Get Booked</a>
                                         @endguest
                                     </div>
                                 </div>
@@ -206,24 +206,7 @@
                     </div>
                 </div>
 
-                {{-- <div class="row">
-                    @for ($i = 0; $i < 4; $i++)
-                        <div class="col-lg-3 col-md-6">
-                            <div class="service-box box-style">
-                                <div class="service-icon box-icon-style">
-                                    <i class="lni lni-leaf"></i>
-                                </div>
-                                <div class="box-content-style service-content">
-                                    <h4>Clean & Refreshing</h4>
-                                    <p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
-                                        labor dolore magna.</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endfor
-                </div> --}}
-
-                @livewire('services-list')  <!-- Include the Livewire component here -->
+                @livewire('services-list')
             </div>
         </section>
         <!-- ========================= service-section end ========================= -->
@@ -336,110 +319,8 @@
         </section>
         <!-- ========================= contact-section end ========================= -->
 
-        <!-- ========================= footer start ========================= -->
-        {{-- <footer class="footer pt-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
-                            <a href="index.html" class="logo mb-30"><img src="{{ asset('img/logo/logo.svg') }}" alt="logo"></a>
-                            <p class="mb-30 footer-desc">Expert care and style, tailored for every client – your ultimate salon experience online.</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 offset-xl-1 col-lg-2 col-md-6">
-                        <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".4s">
-                            <h4>Quick Link</h4>
-                            <ul class="footer-links">
-                                <li>
-                                    <a href="#home">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#about">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="#services">Service</a>
-                                </li>
-                                <li>
-                                    <a href="#contact">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6">
-                        <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".6s">
-                            <h4>Service</h4>
-                            <ul class="footer-links">
-                                <li>
-                                    <button class="btn btn-link text-secondary px-0 py-1" data-bs-toggle="modal" data-bs-target="#bookingModal">Marketing</button>
-                                </li>
-                                <li>
-                                    <button class="btn btn-link text-secondary px-0 py-1" data-bs-toggle="modal" data-bs-target="#bookingModal">Branding</button>
-                                </li>
-                                <li>
-                                    <button class="btn btn-link text-secondary px-0 py-1" data-bs-toggle="modal" data-bs-target="#bookingModal">Web Design</button>
-                                </li>
-                                <li>
-                                    <button class="btn btn-link text-secondary px-0 py-1" data-bs-toggle="modal" data-bs-target="#bookingModal">Web Design</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6">
-                        <div class="footer-widget mb-60 wow fadeInRight" data-wow-delay=".8s">
-                            <h4>Contact</h4>
-                            <ul class="footer-contact">
-                                <li>
-                                    <p>09488986916</p>
-                                </li>
-                                <li>
-                                    <p>angel_temporado29@yahoo.com</p>
-                                </li>
-                                <li>
-                                    <p>San Andres</br>
-                                    Catanduanes</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="copyright-area">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                             <div class="footer-social-links">
-                                <ul class="d-flex">
-                                    <li><a href="https://www.facebook.com/geldorapomte" target="_blank"><i class="lni lni-facebook-original"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer> --}}
-        <!-- ========================= footer end ========================= -->
-
-        @guest
-        <!-- Login Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                           <!-- Livewire Component -->
-                            @livewire('login')
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endguest
-
         @auth
-        <!-- Login Modal -->
+        <!-- Logout Modal -->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
@@ -462,56 +343,6 @@
             </div>
         </div>
         @endauth
-
-        <!-- Signup Modal -->
-        {{-- <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Signup</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('customer.signup') }}" method="POST" class="h-100 d-flex align-items-center">
-                    @csrf
-                    <div class="modal-body py-3 mt-1">
-                        <div class="container">
-                            <div class="row">
-                                <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="full_name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="full_name" name="full_name" required  aria-describedby="fullNameHelp">
-                                        <div id="fullNameHelp" class="form-text">Dela Cruz, Juan P</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="contact_number" class="form-label">Contact Number</label>
-                                        <input type="text" class="form-control" id="contact_number" name="contact_number" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" required>
-                                    </div>
-                                    <div class="mb-3 d-none">
-                                        <label for="role" class="form-label">role</label>
-                                        <input hidden type="text" class="form-control" id="role" name="role" value="1">
-                                    </div>
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Signup</button>
-                                    </div>
-                                    <p class="text-center mt-3">
-                                    Already have an account? <button class="btn btn-link" data-bs-target="#loginLogoutModal" data-bs-toggle="modal" data-bs-dismiss="modal">Login</button>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div> --}}
 
         <!-- ========================= scroll-top ========================= -->
         <a href="#" class="scroll-top">

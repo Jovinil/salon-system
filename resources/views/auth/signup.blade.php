@@ -40,7 +40,7 @@
                                 <button type="submit" class="btn btn-primary">Signup</button>
                             </div>
                             <p class="text-center mt-3">
-                            Already have an account? <button class="btn btn-link" data-bs-target="#loginLogoutModal" data-bs-toggle="modal" data-bs-dismiss="modal">Login</button>
+                            Already have an account? <a class="btn btn-link" href="{{ route('login') }}">Login</a>
                             </p>
                         </div>
                     </div>

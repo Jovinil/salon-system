@@ -13,6 +13,8 @@ Route::get('/login', function () { return view('auth.login'); })->name('login');
 
 Route::get('/signup', function () { return view('auth.signup'); })->name('signup');
 
+// CREATE USER
+Route::post('/customer/create', [UserController::class, 'createUser'])->name('customer.signup');
 
 //LOGIN AND LOGOUT ROUTES
 Route::post('/authenticate', [LoginLogoutController::class, 'authenticate'])->name('authenticate');
@@ -28,7 +30,6 @@ Route::middleware('is.admin')->group(function()
 Route::middleware('is.customer')->group(function()
 {
 
-Route::post('/customer/create', [UserController::class, 'createUser'])->name('customer.signup');
 
 
     Route::get('/customer{id}', [UserController::class, 'index'])->name('customer.index');
