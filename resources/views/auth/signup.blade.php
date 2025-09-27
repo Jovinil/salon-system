@@ -15,6 +15,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="mb-3">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="mb-3">
                                 <label for="full_name" class="form-label">Full Name</label>
                                 <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Dela Cruz, Juan P" required  aria-describedby="fullNameHelp">

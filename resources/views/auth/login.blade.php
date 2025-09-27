@@ -15,6 +15,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="mb-3">
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger mt-3">{{ session('error') }}</div>
+                            @endif
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input name="email" type="email" class="form-control" id="email" wire:model="email" required>
@@ -30,12 +33,6 @@
                                 Don't have an account?
                                 <a class="btn btn-link" href="{{ route('signup') }}">Sign Up</a>
                             </p>
-                            @if (session()->has('message'))
-                                <div class="alert alert-success mt-3">{{ session('message') }}</div>
-                            @endif
-                            @if (session()->has('error'))
-                                <div class="alert alert-danger mt-3">{{ session('error') }}</div>
-                            @endif
                         </div>
                     </div>
                 </div>

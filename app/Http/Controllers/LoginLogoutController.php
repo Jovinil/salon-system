@@ -32,7 +32,7 @@ class LoginLogoutController extends Controller
         }
 
         //return if login failed
-        return redirect('/')->with('incorrect', 'Incorrect password or username');
+        return back()->with('error', 'Incorrect password or username');
     }
 
     public function logout(Request $request)
