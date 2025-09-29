@@ -6,6 +6,7 @@
                 <td colspan="3">
                     <!-- Enlarged Card -->
                     <div class="card card-lg">
+                        <form wire:submit="update">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="serviceOptionId">Service Option</label>
@@ -28,10 +29,11 @@
                             </div>
 
                             <div class="form-group mt-3 text-end">
-                                <button class="btn btn-success btn-sm" wire:click="update">Save</button>
+                                <button type="submit" class="btn btn-success btn-sm">Save</button>
                                 <button class="btn btn-secondary btn-sm" wire:click="cancelEdit">Cancel</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </td>
             </tr>

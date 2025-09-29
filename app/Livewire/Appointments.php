@@ -41,8 +41,11 @@ class Appointments extends Component
 
     public function cancelEdit()
     {
-        $this->reset(['editingBookingId', 'serviceOptionId', 'bookingDate']);
+        $this->editingBookingId = null;
+        $this->reset(['serviceOptionId', 'bookingDate']);
+        $this->loadBookings();
         $this->resetValidation();
+        $this->resetErrorBag();
     }
 
 
