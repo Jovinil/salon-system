@@ -33,7 +33,7 @@ class UserController extends Controller
 
         $userID = User::create($user)->id;
 
-        return redirect()->back()->with('success', 'Signup successful.');
+        return redirect('/')->with('success', 'Signup successful.');
     }
 
     public function index(int $id)
