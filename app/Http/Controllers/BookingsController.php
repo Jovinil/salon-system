@@ -6,6 +6,7 @@ use App\Models\Booking;  // Import the Booking model
 use App\Models\ServiceOption;  // Import the ServiceOption model if needed
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BookingsController extends Controller
 {
@@ -36,9 +37,12 @@ class BookingsController extends Controller
 
     public function editBooking()
     {
-        $user = Auth::user();
+        $user = Auth::user()->id;
 
-        $bookings = $user->bookings()->get();
+        $bookings = DB::table('users')->join('bookings', 'users.id', '=', 'bookings.user_id')
+        ->where('users.id', '=', $user)
+        ->select('bookings.*', 'users.*')
+        ->get();
 
         return view('customer.view', compact('bookings'));
     }
