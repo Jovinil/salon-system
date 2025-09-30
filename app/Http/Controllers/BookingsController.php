@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;  // Import the Booking model
 use App\Models\ServiceOption;  // Import the ServiceOption model if needed
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingsController extends Controller
 {
@@ -35,7 +36,7 @@ class BookingsController extends Controller
 
     public function editBooking()
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         $bookings = $user->bookings()->get();
 
