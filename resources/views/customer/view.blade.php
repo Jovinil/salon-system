@@ -1,25 +1,8 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta http-equiv="Content-Language" content="en">
+@extends('layouts.empty')
 
-		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
-        <!-- Place favicon.ico in the root directory -->
 
-		<!-- ========================= CSS here ========================= -->
-		<link rel="stylesheet" href="{{ asset('css/bootstrap-5.0.0-alpha.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/LineIcons.2.0.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/main.css') }}">
-        <!-- Data table -->
-        <link rel="stylesheet" href="{{ asset("DataTables/datatables.css") }}">
-        @livewireStyles
-    </head>
-    <body>
-        <div class="container vh-100 py-4">
+@section('content')
+
             <div class="row justify-content-center align-items-center h-100 ">
                 <div class="col-12 col-lg-5">
                     <div class="card card-dark card-outline mb-4 w-100 w-lg-50"> <!--begin::Header-->
@@ -69,34 +52,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-
-		<!-- ========================= JS here ========================= -->
-		<script src="{{ asset('js/bootstrap.bundle-5.0.0.alpha-min.js') }}"></script>
-        <script src="{{ asset('js/count-up.min.js') }}"></script>
-        <script src="{{ asset('js/wow.min.js') }}"></script>
-        <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
-		<script src="{{ asset('js/main.js') }}"></script>
-        <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
-        <!-- Data Table JS -->
-        <script src="{{ asset("DataTables/datatables.min.js") }}"></script>
-
-        <script>
-            $(document).ready(function () {
-            // Initialize DataTable
-            $('#services-table').DataTable({
-                paging: true,          // Enable pagination
-                searching: true,       // Enable search functionality
-                ordering: false,       // Disable column sorting
-                lengthMenu: [5, 10, 25, 50],
-                // Set default number of rows per page
-                language: {
-                    search: "Search:", // Customize the search label
-                }
-            });
-        });
-        </script>
-        @livewireScripts
-    </body>
-</html>
+@endsection

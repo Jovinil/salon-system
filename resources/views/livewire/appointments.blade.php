@@ -6,7 +6,8 @@
                 <td colspan="3">
                     <!-- Enlarged Card -->
                     <div class="card card-lg">
-                        <form wire:submit="update">
+                        <form wire:submit="update" method="POST">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="serviceOptionId">Service Option</label>

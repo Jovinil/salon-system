@@ -32,22 +32,6 @@
 		<script src="{{ asset('js/main.js') }}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 
-        <script>
-            // Get references to the modal and form
-            const modal = new bootstrap.Modal(document.getElementById('myModal'));
-            const form = document.getElementById('myForm');
-
-            // Add an event listener for the form submission
-            form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-            // You can process the form data here (AJAX, etc.)
-
-            // Optionally, keep the modal open and show a success message or other feedback
-            alert('Form submitted, but modal remains open!');
-            // No need to close the modal, so it stays open
-            });
-        </script>
-
     @livewireScripts
     </body>
 </html>
